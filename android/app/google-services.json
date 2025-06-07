@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1091501890060",
+    "project_id": "shoaibproj-cb1ef",
+    "storage_bucket": "shoaibproj-cb1ef.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091501890060:android:b5674115a6b72c0b2aec29",
+        "android_client_info": {
+          "package_name": "se.fff.ghj"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXtuFJWEjWcKVj3NjqKSF_huHKswthGzw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
