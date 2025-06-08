@@ -61,7 +61,7 @@ class _RegisterViewState extends State<RegisterView> {
                 print(userCredential);
               } on FirebaseAuthException catch (e) {
                 print("something bad happened");
-                print(e);
+              
               }
             },
             child: const Text('Register'),
