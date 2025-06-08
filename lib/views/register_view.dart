@@ -61,7 +61,7 @@ class _RegisterViewState extends State<RegisterView> {
                       email: email,
                       password: password,
                     );
-                print(userCredential);
+               
               } on FirebaseAuthException catch (e) {
                 print("something bad happened");
                 print(e);
