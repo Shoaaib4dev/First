@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:ghj/firebase_options.dart';
 import 'package:ghj/services/auth/auth_user.dart';
 import 'package:ghj/services/auth/auth_exceptions.dart';
 import 'package:ghj/services/auth/auth_provider.dart';
@@ -53,7 +55,7 @@ class FirebaseAuthProvider implements AuthProvider {
     required String password,
   }) async {
     try {
-      FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -65,13 +67,13 @@ class FirebaseAuthProvider implements AuthProvider {
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
-        throw UserNOtFoundAuthException();
-      } else if (e.code == 'wrong-password') {
+        throw UserNotFoundAuthException();
+      } else if (e.code == "wrongpassword") {
         throw WrongPasswordAuthException();
       } else {
         throw GenericAuthException();
       }
-    } catch (_) {
+    } catch (h) {
       throw GenericAuthException();
     }
   }
@@ -80,7 +82,7 @@ class FirebaseAuthProvider implements AuthProvider {
   Future<void> logout() async {
     final user = currentUser;
     if (user != null) {
-      FirebaseAuth.instance.signOut();
+      await FirebaseAuth.instance.signOut();
     } else {
       throw UserNotLoggedInAuthException();
     }
@@ -94,5 +96,12 @@ class FirebaseAuthProvider implements AuthProvider {
     } else {
       throw UserNotLoggedInAuthException();
     }
+  }
+
+  @override
+  Future<void> initialize() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
 }
