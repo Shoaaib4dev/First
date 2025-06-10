@@ -60,7 +60,7 @@ void main() {
 class NotInitializedException implements Exception {}
 
 class MockAuthProvider implements AuthProvider {
-  AuthUser? _user = null;
+  AuthUser? _user ;
   var _isInitialized = false;
   bool get isInitialized => _isInitialized;
 
