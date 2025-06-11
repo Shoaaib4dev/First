@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ghj/constants/routes.dart';
 import 'package:ghj/services/auth/auth_service.dart';
 import 'package:ghj/views/login_view.dart';
-import 'package:ghj/views/notes_view.dart';
+import 'package:ghj/views/notes/new_note_view.dart';
+import 'package:ghj/views/notes/notes_view.dart';
 import 'package:ghj/views/register_view.dart';
 import 'package:ghj/views/verify_email_view.dart';
 
@@ -27,6 +28,7 @@ void main() {
         registerRoute: (context) => const RegisterView(),
         notesRoute:(context)=> const NotesView(),
        verifyEmailRoute:(context)=> const VerifyEmailView(),
+       newNoteRoute:(context) => const NewNoteView(),
       },
     ),
   );
