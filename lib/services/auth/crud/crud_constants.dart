@@ -6,12 +6,12 @@ const isSyncedWithCloudColumn = 'is_synced_with_cloud';
 const dbName = 'notes.db';
 const noteTable = 'note';
 const userTable = 'user';
-const createUserTable = ''' CREATE TABLE "user" (
+const createUserTable = ''' CREATE TABLE IF NOT EXISTS "user" (
 	"id"	INTEGER NOT NULL,
 	"email"	TEXT NOT NULL UNIQUE,
 	PRIMARY KEY("id" AUTOINCREMENT)
 ); ''';
-const createNotesTable = ''' CREATE TABLE "note" (
+const createNotesTable = ''' CREATE TABLE IF NOT EXISTS "note" (
 	"id"	INTEGER NOT NULL,
 	"user_id"	INTEGER NOT NULL,
 	"text"	TEXT,

@@ -29,3 +29,5 @@ class UserNotLoggedInAuthException
 implements Exception {
 
 }
+
+

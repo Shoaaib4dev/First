@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:ghj/constants/routes.dart';
 import 'package:ghj/services/auth/auth_service.dart';
+import 'package:ghj/services/auth/crud/notes_service.dart';
 import 'package:ghj/views/login_view.dart';
-import 'package:ghj/views/notes/new_note_view.dart';
+import 'package:ghj/views/notes/create_update_note_view.dart';
 import 'package:ghj/views/notes/notes_view.dart';
 import 'package:ghj/views/register_view.dart';
 import 'package:ghj/views/verify_email_view.dart';
@@ -11,7 +11,7 @@ import 'package:ghj/views/verify_email_view.dart';
 void main() {
   //  main function returns what displayed on screen
   WidgetsFlutterBinding.ensureInitialized(); // make sure everything in initialized
-
+ 
   runApp(
     MaterialApp(
       title: 'Flutter Demo ',
@@ -23,12 +23,11 @@ void main() {
       ),
       home: const HomePage(),
       routes: {
-        
-        loginRoute : (context) => const LoginView(),
+        loginRoute: (context) => const LoginView(),
         registerRoute: (context) => const RegisterView(),
-        notesRoute:(context)=> const NotesView(),
-       verifyEmailRoute:(context)=> const VerifyEmailView(),
-       newNoteRoute:(context) => const NewNoteView(),
+        notesRoute: (context) => const NotesView(),
+        verifyEmailRoute: (context) => const VerifyEmailView(),
+        createOrUpdateNoteRoute: (context) => const CreateUpdateNoteView(),
       },
     ),
   );
@@ -47,7 +46,6 @@ class HomePage extends StatelessWidget {
             final user = AuthService.firebase().currentUser;
             if (user != null) {
               if (user.isEmailVerified) {
-               
                 return NotesView();
               } else {
                 return const VerifyEmailView();
@@ -68,4 +66,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
