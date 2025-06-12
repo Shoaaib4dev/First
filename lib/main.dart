@@ -7,6 +7,7 @@ import 'package:ghj/views/notes/create_update_note_view.dart';
 import 'package:ghj/views/notes/notes_view.dart';
 import 'package:ghj/views/register_view.dart';
 import 'package:ghj/views/verify_email_view.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
   //  main function returns what displayed on screen
