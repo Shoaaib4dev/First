@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:ghj/services/auth/crud/crud_constants.dart';
 import 'package:ghj/services/auth/crud/crud_exceptions.dart';
 import 'package:sqflite/sqflite.dart';
@@ -13,11 +12,17 @@ class NotesService {
   List<DatabaseNote> _notes = [];
 
   static final NotesService _shared = NotesService._sharedInstance();
-  NotesService._sharedInstance();
-  factory NotesService() => _shared  ;
+  NotesService._sharedInstance() {
+    _notesStreamController = StreamController<List<DatabaseNote>>.broadcast(
+      onListen: () {
+        _notesStreamController.sink.add(_notes);
+      },
+    );
+  }
+  factory NotesService() => _shared;
 
-  final _notesStreamController =
-      StreamController<List<DatabaseNote>>.broadcast();
+  late final StreamController<List<DatabaseNote>> _notesStreamController;
+
   Stream<List<DatabaseNote>> get allNotes => _notesStreamController.stream;
   Future<DatabaseUser> getOrCreateUser({required String email}) async {
     try {
