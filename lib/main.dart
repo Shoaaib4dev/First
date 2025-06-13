@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ghj/constants/routes.dart';
 import 'package:ghj/services/auth/auth_service.dart';
-import 'package:ghj/services/auth/crud/notes_service.dart';
 import 'package:ghj/views/login_view.dart';
 import 'package:ghj/views/notes/create_update_note_view.dart';
 import 'package:ghj/views/notes/notes_view.dart';
 import 'package:ghj/views/register_view.dart';
 import 'package:ghj/views/verify_email_view.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
   //  main function returns what displayed on screen
